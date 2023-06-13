@@ -7,9 +7,8 @@ header {
 }
 
 .logo {
-  object-fit: scale-down;
+  object-fit: contain;
   max-height: 25%;
-  max-width: 25%;
 }
 
 a {
@@ -18,12 +17,21 @@ a {
   font-weight: bold;
 }
 
+.role-icon {
+  max-width: 9%;
+}
+
 .agent-icon {
   border-radius: 50%;
-  border: solid red;
+  border: solid #ff4454;
   background-color: #171717;
   max-width: 80%;
   max-height: 80%;
+}
+
+.agent-icon:hover,
+.role-icon {
+  cursor: pointer;
 }
 
 /* .circle {

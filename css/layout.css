@@ -1,0 +1,39 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-left {
+  justify-content: space-evenly;
+}
+
+.header-right {
+  justify-content: end;
+}
+
+.roles-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7rem 0 5rem;
+}
+
+.role-icon {
+  padding: 0 1rem;
+}
+
+.icon-container {
+  display: flex;
+  flex-basis: calc(100%/7);
+}

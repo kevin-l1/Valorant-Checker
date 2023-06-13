@@ -7,18 +7,19 @@ header {
 }
 
 .logo {
-  object-fit: contain;
-  max-height: 25%;
+  max-width: 15%;
 }
 
 a {
   color: black;
   text-decoration: none;
-  font-weight: bold;
+  font-family: VALORANT, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .role-icon {
-  max-width: 9%;
+  max-width: 80%;
 }
 
 .agent-icon {
@@ -53,3 +54,33 @@ a {
   right: 0;
   top: 0;
 } */
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    max-width: 20%;
+  }
+
+  a {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    max-width: 20%;
+  }
+
+  a {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .logo {
+    max-width: 30%;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+}

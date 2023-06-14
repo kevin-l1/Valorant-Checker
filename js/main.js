@@ -23,4 +23,7 @@ function getAgents(language, isPlayable) {
   });
   xhr.send();
 }
-getAgents();
+
+document.addEventListener('DOMContentLoaded', () => {
+  getAgents();
+});

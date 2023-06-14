@@ -1,0 +1,84 @@
+body {
+  background-color: #32333d;
+}
+
+header {
+  background-color: #ff4454;
+}
+
+.logo {
+  max-width: 70%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-family: VALORANT, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.role-icon {
+  max-width: 70%;
+}
+
+.agent-icon {
+  border-radius: 50%;
+  border: solid #ff4454;
+  background-color: #171717;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.agent-icon:hover,
+.role-icon {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 415px) {
+  a {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 530px) {
+  a {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    max-width: 65%;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .logo {
+    max-width: 60%;
+  }
+
+  a {
+    font-size: 1.7rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .logo {
+      max-width: 50%;
+    }
+
+    a {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  a {
+    font-size: 2.3rem;
+  }
+}

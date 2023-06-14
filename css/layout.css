@@ -1,0 +1,156 @@
+body {
+  margin: 0 auto;
+}
+
+header {
+  padding: 0.5rem 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header.row {
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.header.column-fourth {
+  justify-content: start;
+}
+
+.column-fourth.right {
+  justify-content: end;
+}
+
+.column-half {
+  display: flex;
+  width: 50%;
+}
+
+.column-fourth {
+  display: flex;
+  flex-basis: 25%;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.column-half.left-1,
+.column-half.left-2 {
+  justify-content: end;
+  padding: 0.5rem 0;
+}
+
+.column-half.right-1,
+.column-half.right-2 {
+  justify-content: start;
+  padding: 1rem 0;
+}
+
+.roles-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 2.5rem;
+}
+
+.role-icon {
+  display: flex;
+  padding: 0 1rem;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  flex-basis: calc(100%/2);
+}
+
+@media screen and (min-width: 530px) {
+  .icon-container {
+    flex-basis: calc(100% / 3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header.row {
+    padding: 0 1rem;
+  }
+
+  .column-half {
+    width: calc(100% / 3);
+  }
+
+  .column-half.right-1,
+  .column-half.right-2 {
+    justify-content: center;
+  }
+
+  .column-half.left-1 {
+    justify-content: end;
+  }
+
+  .column-half.left-2 {
+    justify-content: start;
+  }
+
+  .icon-container {
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .column-half {
+    width: 20%;
+  }
+
+  .column-half.right-1,
+  .column-half.right-2,
+  .column-half.left-1,
+  .column-half.left-2 {
+    justify-content: center;
+  }
+
+  .role-icon {
+    padding: 0 0.3rem;
+  }
+
+  .icon-container {
+    flex-basis: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header.row {
+    padding: 0 1.5rem;
+  }
+
+  .column-half {
+    width: 15%;
+  }
+
+  .column-half.right-1,
+  .column-half.right-2,
+  .column-half.left-1,
+  .column-half.left-2 {
+    justify-content: center;
+  }
+
+  .roles-icons {
+    align-items: center;
+    padding: 4rem 0 3rem;
+  }
+
+  .role-icon {
+    padding: 0 0.3rem;
+  }
+
+  .icon-container {
+    flex-basis: calc(100% / 7);
+  }
+}

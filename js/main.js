@@ -12,14 +12,11 @@ function getAgents() {
       const resp = xhr.response.data;
       for (let i = 0; i < resp.length; i++) {
         if (resp[i].isPlayableCharacter === true) {
-          // const $div = document.createElement('div');
           const $agent = document.createElement('img');
-          // $div.setAttribute('class', 'icon-container');
           $agent.setAttribute('src', resp[i].displayIcon);
           $agent.setAttribute('class', 'agent-icon');
           $agent.classList.add(resp[i].role.displayName.toLowerCase());
           $agentIconsRow.append($agent);
-          // $div.append($agent);
         }
       }
     }

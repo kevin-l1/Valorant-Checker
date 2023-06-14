@@ -38,6 +38,11 @@ $filter.addEventListener('click', () => {
     for (let i = 0; i < $roleButtons.length; i++) {
       $roleButtons[i].classList.remove('darken');
     }
+    for (let i = 0; i < $agentIcons.length; i++) {
+      if (!$agentIcons[i].classList.contains(event.target.id)) {
+        $agentIcons[i].classList.remove('hidden');
+      }
+    }
     return;
   }
 
@@ -52,10 +57,11 @@ $filter.addEventListener('click', () => {
   }
 
   $agentIcons = document.querySelectorAll('.agent-icon');
-
   for (let i = 0; i < $agentIcons.length; i++) {
     if (!$agentIcons[i].classList.contains(event.target.id)) {
       $agentIcons[i].classList.add('hidden');
+    } else {
+      $agentIcons[i].classList.remove('hidden');
     }
   }
 

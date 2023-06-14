@@ -123,6 +123,13 @@ header {
 
   .roles-icons {
     align-items: center;
-    padding: 3rem 0 2rem;
+    padding: 1rem 0 2rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .roles-icons {
+    margin: 0;
+    padding: 0;
   }
 }

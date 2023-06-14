@@ -98,6 +98,10 @@ a {
 }
 
 @media screen and (min-width: 1400px) {
+  .logo {
+    max-width: 40%;
+  }
+
   .agent-icon {
     max-width: 12%;
   }

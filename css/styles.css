@@ -7,19 +7,19 @@ header {
 }
 
 .logo {
-  max-width: 15%;
+  max-width: 70%;
 }
 
 a {
   color: black;
   text-decoration: none;
   font-family: VALORANT, sans-serif;
-  font-size: 2rem;
+  font-size: 0.7rem;
   font-weight: 500;
 }
 
 .role-icon {
-  max-width: 80%;
+  max-width: 70%;
 }
 
 .agent-icon {
@@ -35,52 +35,44 @@ a {
   cursor: pointer;
 }
 
-/* .circle {
-  position: relative;
-  border-radius: 50%;
-  background-color: black;
-  border: solid red;
-  width: 10rem;
-  height: 10rem;
-}
-
-.agent-icon {
-  position: absolute;
-  margin: 0 auto;
-  max-width: 50%;
-  max-height: 50%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-} */
-
-@media screen and (max-width: 1200px) {
-  .logo {
-    max-width: 20%;
-  }
-
+@media screen and (min-width: 415px) {
   a {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .logo {
-    max-width: 20%;
-  }
-
+@media screen and (min-width: 530px) {
   a {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (min-width: 768px) {
   .logo {
-    max-width: 30%;
+    max-width: 65%;
   }
 
   a {
-    font-size: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .logo {
+    max-width: 60%;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .logo {
+      max-width: 50%;
+    }
+
+    a {
+      font-size: 2rem;
+    }
   }
 }

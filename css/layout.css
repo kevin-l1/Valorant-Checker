@@ -1,3 +1,7 @@
+body {
+  margin: 0 auto;
+}
+
 header {
   padding: 0.5rem 0;
 }
@@ -5,10 +9,30 @@ header {
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header.row {
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.header.column-fourth {
+  justify-content: start;
+}
+
+.column-fourth.right {
+  justify-content: end;
 }
 
 .column-half {
+  display: flex;
   width: 50%;
+}
+
+.column-fourth {
+  display: flex;
+  flex-basis: 25%;
 }
 
 .header-left,
@@ -17,25 +41,23 @@ header {
   align-items: center;
 }
 
-.header-left {
-  justify-content: start;
-  padding-left: 1rem;
-}
-
-.header-right {
+.column-half.left-1,
+.column-half.left-2 {
   justify-content: end;
-  padding-right: 1rem;
+  padding: 0.5rem 0;
 }
 
-a {
-  padding-left: 10rem;
+.column-half.right-1,
+.column-half.right-2 {
+  justify-content: start;
+  padding: 1rem 0;
 }
 
 .roles-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 6rem 0 5rem;
+  padding: 2rem 0 2.5rem;
 }
 
 .role-icon {
@@ -46,17 +68,52 @@ a {
 .icon-container {
   display: flex;
   justify-content: center;
-  flex-basis: calc(100%/7);
+  flex-basis: calc(100%/2);
 }
 
-@media screen and (max-width: 1200px) {
-  a {
-    padding-left: 6rem;
+@media screen and (min-width: 530px) {
+  .icon-container {
+    flex-basis: calc(100% / 3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header.row {
+    padding: 0 1rem;
   }
 
-  .roles-icons {
-    align-items: center;
-    padding: 4rem 0 3rem;
+  .column-half {
+    width: calc(100% / 3);
+  }
+
+  .column-half.right-1,
+  .column-half.right-2 {
+    justify-content: center;
+  }
+
+  .column-half.left-1 {
+    justify-content: end;
+  }
+
+  .column-half.left-2 {
+    justify-content: start;
+  }
+
+  .icon-container {
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .column-half {
+    width: 20%;
+  }
+
+  .column-half.right-1,
+  .column-half.right-2,
+  .column-half.left-1,
+  .column-half.left-2 {
+    justify-content: center;
   }
 
   .role-icon {
@@ -68,9 +125,20 @@ a {
   }
 }
 
-@media screen and (max-width: 768px) {
-  a {
-    padding-left: 4rem;
+@media screen and (min-width: 1200px) {
+  .header.row {
+    padding: 0 1.5rem;
+  }
+
+  .column-half {
+    width: 15%;
+  }
+
+  .column-half.right-1,
+  .column-half.right-2,
+  .column-half.left-1,
+  .column-half.left-2 {
+    justify-content: center;
   }
 
   .roles-icons {
@@ -83,30 +151,6 @@ a {
   }
 
   .icon-container {
-    flex-basis: 25%;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  a {
-    padding-left: 2rem;
-  }
-
-  .icon-container {
-    flex-basis: 50%;
-  }
-
-  .column-fourth {
-    display: flex;
-    padding: 1rem;
-    width: 50%;
-  }
-
-  .left {
-    justify-content: end;
-  }
-
-  .right {
-    justify-content: start;
+    flex-basis: calc(100% / 7);
   }
 }

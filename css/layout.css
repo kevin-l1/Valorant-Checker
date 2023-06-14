@@ -26,7 +26,6 @@ header {
 }
 
 .column-half {
-  display: flex;
   width: 50%;
 }
 
@@ -41,43 +40,32 @@ header {
   align-items: center;
 }
 
-.column-half.left-1,
-.column-half.left-2 {
-  justify-content: end;
-  padding: 0.5rem 0;
-}
-
-.column-half.right-1,
-.column-half.right-2 {
-  justify-content: start;
-  padding: 1rem 0;
-}
-
 .roles-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0 2.5rem;
+  margin: 1rem 0;
 }
 
 .role-icon {
-  display: flex;
-  padding: 0 1rem;
+  margin: 1rem;
 }
 
-.icon-container {
-  display: flex;
-  justify-content: center;
-  flex-basis: calc(100%/2);
+.agent-icon {
+  margin: 1rem;
 }
 
 @media screen and (min-width: 530px) {
-  .icon-container {
-    flex-basis: calc(100% / 3);
+  .role-icon {
+    margin: 0.3rem;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .role-icon {
+    margin: -1rem;
+  }
+
   .header.row {
     padding: 0 1rem;
   }
@@ -98,13 +86,13 @@ header {
   .column-half.left-2 {
     justify-content: start;
   }
-
-  .icon-container {
-    flex-basis: 25%;
-  }
 }
 
 @media screen and (min-width: 960px) {
+  .role-icon {
+    margin: 0;
+  }
+
   .column-half {
     width: 20%;
   }
@@ -114,14 +102,6 @@ header {
   .column-half.left-1,
   .column-half.left-2 {
     justify-content: center;
-  }
-
-  .role-icon {
-    padding: 0 0.3rem;
-  }
-
-  .icon-container {
-    flex-basis: 20%;
   }
 }
 
@@ -143,14 +123,6 @@ header {
 
   .roles-icons {
     align-items: center;
-    padding: 4rem 0 3rem;
-  }
-
-  .role-icon {
-    padding: 0 0.3rem;
-  }
-
-  .icon-container {
-    flex-basis: calc(100% / 7);
+    padding: 3rem 0 2rem;
   }
 }

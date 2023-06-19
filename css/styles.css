@@ -39,6 +39,18 @@ a {
   cursor: pointer;
 }
 
+.agent-portrait {
+  max-width: 100%;
+}
+
+.ability-icon {
+  object-fit: scale-down;
+}
+
+.darken {
+  opacity: 0.25;
+}
+
 @media screen and (min-width: 415px) {
   a {
     font-size: 0.9rem;
@@ -109,8 +121,4 @@ a {
   a {
     font-size: 2.3rem;
   }
-}
-
-.darken {
-  opacity: 0.25;
 }

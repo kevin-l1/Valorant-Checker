@@ -2,6 +2,7 @@ const $agentIconsRow = document.querySelector('.agent-icons');
 const $filter = document.querySelector('.roles-icons');
 const $roleButtons = document.querySelectorAll('.role-icon');
 let $agentIcons;
+const $agentpages = document.querySelector('.agent-pages');
 
 function getAgents() {
   const xhr = new XMLHttpRequest();
@@ -21,7 +22,7 @@ function getAgents() {
           // character page
           const $agentPage = document.createElement('div');
           $agentPage.setAttribute('class', 'row');
-          $agentPage.classList.add('hidden');
+          // $agentPage.classList.add('hidden');
           const $describedImage = document.createElement('div');
           $describedImage.setAttribute('class', 'column-two-fifth');
           const $abilities = document.createElement('div');
@@ -37,17 +38,25 @@ function getAgents() {
           $description.textContent = resp[i].description;
 
           const $abilityOne = document.createElement('div');
+          $abilityOne.setAttribute('class', 'ability');
           const $abilityTwo = document.createElement('div');
+          $abilityTwo.setAttribute('class', 'ability');
           const $abilityThree = document.createElement('div');
+          $abilityThree.setAttribute('class', 'ability');
           const $ultimate = document.createElement('div');
+          $ultimate.setAttribute('class', 'ability');
 
           const $abilityOneIcon = document.createElement('img');
+          $abilityOneIcon.setAttribute('class', 'ability-icon');
           $abilityOneIcon.setAttribute('src', resp[i].abilities[0].displayIcon);
           const $abilityTwoIcon = document.createElement('img');
+          $abilityTwoIcon.setAttribute('class', 'ability-icon');
           $abilityTwoIcon.setAttribute('src', resp[i].abilities[1].displayIcon);
           const $abilityThreeIcon = document.createElement('img');
+          $abilityThreeIcon.setAttribute('class', 'ability-icon');
           $abilityThreeIcon.setAttribute('src', resp[i].abilities[2].displayIcon);
           const $ultimateIcon = document.createElement('img');
+          $ultimateIcon.setAttribute('class', 'ability-icon');
           $ultimateIcon.setAttribute('src', resp[i].abilities[3].displayIcon);
 
           const $abilityOneName = document.createElement('h2');
@@ -69,38 +78,46 @@ function getAgents() {
           $ultimateDescription.textContent = resp[i].abilities[3].description;
 
           const $abilityOneText = document.createElement('div');
+          $abilityOneText.setAttribute('class', 'ability-text');
           $abilityOneText.append($abilityOneName);
           $abilityOneText.append($abilityOneDescription);
           const $abilityTwoText = document.createElement('div');
-          $abilityOneText.append($abilityTwoName);
-          $abilityOneText.append($abilityTwoDescription);
+          $abilityTwoText.setAttribute('class', 'ability-text');
+          $abilityTwoText.append($abilityTwoName);
+          $abilityTwoText.append($abilityTwoDescription);
           const $abilityThreeText = document.createElement('div');
-          $abilityOneText.append($abilityThreeName);
-          $abilityOneText.append($abilityThreeDescription);
+          $abilityThreeText.setAttribute('class', 'ability-text');
+          $abilityThreeText.append($abilityThreeName);
+          $abilityThreeText.append($abilityThreeDescription);
           const $ultimateText = document.createElement('div');
-          $abilityOneText.append($ultimateName);
-          $abilityOneText.append($ultimateDescription);
+          $ultimateText.setAttribute('class', 'ability-text');
+          $ultimateText.append($ultimateName);
+          $ultimateText.append($ultimateDescription);
+
+          $portraitText.append($name);
+          $portraitText.append($description);
+
+          $abilityOne.append($abilityOneIcon);
+          $abilityOne.append($abilityOneText);
+          $abilityTwo.append($abilityTwoIcon);
+          $abilityTwo.append($abilityTwoText);
+          $abilityThree.append($abilityThreeIcon);
+          $abilityThree.append($abilityThreeText);
+          $ultimate.append($ultimateIcon);
+          $ultimate.append($ultimateText);
 
           $describedImage.append($portrait);
           $describedImage.append($portraitText);
-          $portraitText.append($name);
-          $portraitText.append($description);
 
           $abilities.append($abilityOne);
           $abilities.append($abilityTwo);
           $abilities.append($abilityThree);
           $abilities.append($ultimate);
-          $abilityOne.append($abilityOneIcon);
-          $abilityOne.append($abilityOneText);
-          $abilityOne.append($abilityTwoIcon);
-          $abilityOne.append($abilityTwoText);
-          $abilityOne.append($abilityThreeIcon);
-          $abilityOne.append($abilityThreeText);
-          $abilityOne.append($ultimateIcon);
-          $abilityOne.append($ultimateText);
 
           $agentPage.append($describedImage);
           $agentPage.append($abilities);
+
+          $agentpages.append($agentPage);
         }
       }
     }
@@ -147,3 +164,5 @@ $filter.addEventListener('click', () => {
   }
 
 });
+
+$agentIcons = document.querySelectorAll();

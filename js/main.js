@@ -1,8 +1,8 @@
 const $agentIconsRow = document.querySelector('.agent-icons');
 const $filter = document.querySelector('.roles-icons');
 const $roleButtons = document.querySelectorAll('.role-icon');
-let $agentIcons;
 const $agentpages = document.querySelector('.agent-pages');
+let $agentIcons = document.querySelector('.agent-icons');
 
 function getAgents() {
   const xhr = new XMLHttpRequest();
@@ -23,7 +23,7 @@ function getAgents() {
           const $agentPage = document.createElement('div');
           $agentPage.setAttribute('class', 'row');
           $agentPage.classList.add('agent-page');
-          // $agentPage.classList.add('hidden');
+          $agentPage.classList.add('hidden');
           const $describedImage = document.createElement('div');
           $describedImage.setAttribute('class', 'column-full left');
           const $abilities = document.createElement('div');
@@ -172,4 +172,37 @@ $filter.addEventListener('click', () => {
 
 });
 
-$agentIcons = document.querySelectorAll();
+let $allIcons;
+let $agentPages;
+let index;
+
+$agentIcons.addEventListener('click', () => {
+  $allIcons = document.querySelectorAll('.agent-icon');
+  $agentPages = document.querySelectorAll('.agent-page');
+  for (index = 0; index < $allIcons.length; index++) {
+    if (event.target === $allIcons[index]) {
+      $agentPages[index].classList.remove('hidden');
+      $filter.classList.add('hidden');
+      $agentIconsRow.classList.add('hidden');
+      return;
+    }
+  }
+});
+
+const $agentsTab = document.querySelector('.agents-tab');
+
+$agentsTab.addEventListener('click', () => {
+  $agentPages = document.querySelectorAll('.agent-page');
+  $agentPages[index].classList.add('hidden');
+  $filter.classList.remove('hidden');
+  $agentIconsRow.classList.remove('hidden');
+});
+
+const $logo = document.querySelector('.logo');
+
+$logo.addEventListener('click', () => {
+  $agentPages = document.querySelectorAll('.agent-page');
+  $agentPages[index].classList.add('hidden');
+  $filter.classList.remove('hidden');
+  $agentIconsRow.classList.remove('hidden');
+});

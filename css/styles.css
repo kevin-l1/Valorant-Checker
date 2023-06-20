@@ -45,7 +45,7 @@ a {
 
 .ability-icon {
   object-fit: scale-down;
-  width: 30%;
+  max-width: 30%;
 }
 
 .darken {

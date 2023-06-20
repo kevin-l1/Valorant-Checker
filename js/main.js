@@ -16,6 +16,7 @@ function getAgents() {
           const $agentIcon = document.createElement('img');
           $agentIcon.setAttribute('src', resp[i].displayIcon);
           $agentIcon.setAttribute('class', 'agent-icon');
+          $agentIcon.setAttribute('alt', 'Agent Icon');
           $agentIcon.classList.add(resp[i].role.displayName.toLowerCase());
           $agentIconsRow.append($agentIcon);
 
@@ -36,6 +37,7 @@ function getAgents() {
           const $portrait = document.createElement('img');
           $portrait.setAttribute('src', resp[i].fullPortrait);
           $portrait.setAttribute('class', 'agent-portrait');
+          $portrait.setAttribute('alt', 'Agent Portrait');
           const $name = document.createElement('h1');
           $name.setAttribute('class', 'name');
           $name.textContent = resp[i].displayName;
@@ -54,15 +56,19 @@ function getAgents() {
 
           const $abilityOneIcon = document.createElement('img');
           $abilityOneIcon.setAttribute('class', 'ability-icon');
+          $abilityOneIcon.setAttribute('alt', 'Ability One Icon');
           $abilityOneIcon.setAttribute('src', resp[i].abilities[0].displayIcon);
           const $abilityTwoIcon = document.createElement('img');
           $abilityTwoIcon.setAttribute('class', 'ability-icon');
           $abilityTwoIcon.setAttribute('src', resp[i].abilities[1].displayIcon);
+          $abilityTwoIcon.setAttribute('alt', 'Ability Two Icon');
           const $abilityThreeIcon = document.createElement('img');
           $abilityThreeIcon.setAttribute('class', 'ability-icon');
+          $abilityThreeIcon.setAttribute('alt', 'Ability Three Icon');
           $abilityThreeIcon.setAttribute('src', resp[i].abilities[2].displayIcon);
           const $ultimateIcon = document.createElement('img');
           $ultimateIcon.setAttribute('class', 'ability-icon');
+          $ultimateIcon.setAttribute('alt', 'Ultimate Icon');
           $ultimateIcon.setAttribute('src', resp[i].abilities[3].displayIcon);
 
           const $abilityOneName = document.createElement('h2');

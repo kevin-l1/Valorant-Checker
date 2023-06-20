@@ -45,10 +45,18 @@ a {
 
 .ability-icon {
   object-fit: scale-down;
+  width: 30%;
 }
 
 .darken {
   opacity: 0.25;
+}
+
+p,
+h1,
+h2 {
+  font-family: Roboto, sans-serif;
+  color: white;
 }
 
 @media screen and (min-width: 415px) {

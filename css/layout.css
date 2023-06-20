@@ -25,6 +25,10 @@ header {
   justify-content: end;
 }
 
+.column-full {
+  width: 100%;
+}
+
 .column-half {
   width: 50%;
 }
@@ -63,13 +67,58 @@ header {
   margin: 1rem;
 }
 
+.agent-page {
+  position: relative;
+}
+
+.fa-bookmark {
+  position: absolute;
+  top: 1%;
+  bottom: 0;
+  right: 0;
+  left: 90%;
+  font-size: 2rem;
+}
+
 .ability {
   display: flex;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .ability-text {
-  margin-left: 2rem;
+  padding-left: 2rem;
+}
+
+.portrait-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0 1rem;
+}
+
+.name {
+  margin: 0;
+}
+
+.agent-description {
+  margin: 0.5rem 1rem 0;
+}
+
+p {
+  line-height: 1.3rem;
+}
+
+.ability-text > h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.ability-text > p {
+  text-align: center;
 }
 
 @media screen and (min-width: 530px) {
@@ -127,6 +176,24 @@ header {
     padding: 0 1.5rem;
   }
 
+  .column-full {
+    width: 50%;
+  }
+
+  .column-full.right {
+    margin-top: 3rem;
+  }
+
+  .agent-description {
+    width: 60%;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .ability {
+    margin-top: 1rem;
+  }
+
   .column-half {
     width: 15%;
   }
@@ -142,11 +209,20 @@ header {
     align-items: center;
     padding: 1rem 0 2rem;
   }
+
+  .fa-bookmark {
+    left: 95%;
+  }
 }
 
 @media screen and (min-width: 1400px) {
   .roles-icons {
     margin: 0;
     padding: 0;
+  }
+
+  .ability {
+    display: flex;
+    margin-top: 3.5rem;
   }
 }

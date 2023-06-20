@@ -22,19 +22,25 @@ function getAgents() {
           // character page
           const $agentPage = document.createElement('div');
           $agentPage.setAttribute('class', 'row');
+          $agentPage.classList.add('agent-page');
           // $agentPage.classList.add('hidden');
           const $describedImage = document.createElement('div');
-          $describedImage.setAttribute('class', 'column-two-fifth');
+          $describedImage.setAttribute('class', 'column-full left');
           const $abilities = document.createElement('div');
-          $abilities.setAttribute('class', 'column-three-fifth');
+          $abilities.setAttribute('class', 'column-full right');
+          const $bookmarkIcon = document.createElement('i');
+          $bookmarkIcon.setAttribute('class', 'fa-regular fa-bookmark');
 
           const $portraitText = document.createElement('div');
+          $portraitText.setAttribute('class', 'portrait-text');
           const $portrait = document.createElement('img');
           $portrait.setAttribute('src', resp[i].fullPortrait);
           $portrait.setAttribute('class', 'agent-portrait');
           const $name = document.createElement('h1');
+          $name.setAttribute('class', 'name');
           $name.textContent = resp[i].displayName;
           const $description = document.createElement('p');
+          $description.setAttribute('class', 'agent-description');
           $description.textContent = resp[i].description;
 
           const $abilityOne = document.createElement('div');
@@ -116,6 +122,7 @@ function getAgents() {
 
           $agentPage.append($describedImage);
           $agentPage.append($abilities);
+          $agentPage.append($bookmarkIcon);
 
           $agentpages.append($agentPage);
         }

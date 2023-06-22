@@ -212,6 +212,11 @@ $agentsTab.addEventListener('click', () => {
   if (!$bookmarksRow.classList.contains('hidden')) {
     $bookmarksRow.classList.add('hidden');
   }
+  if (!$agentPages[index] === undefined) {
+    if (!$agentPages[index].classList.contains('hidden')) {
+      $agentPages[index].classList.add('hidden');
+    }
+  }
   $filter.classList.remove('hidden');
   $agentIconsRow.classList.remove('hidden');
   for (let i = 0; i < $allIcons.length; i++) {

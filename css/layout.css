@@ -74,8 +74,6 @@ header {
 .fa-bookmark {
   position: absolute;
   top: 1%;
-  bottom: 0;
-  right: 0;
   left: 90%;
   font-size: 2rem;
 }
@@ -122,6 +120,15 @@ p {
 }
 
 .ability-text > p {
+  text-align: center;
+}
+
+.bookmarks.row {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.bookmark-text {
   text-align: center;
 }
 

@@ -1,7 +1,7 @@
 const $agentIconsRow = document.querySelector('.agent-icons');
 const $filter = document.querySelector('.roles-icons');
 const $roleButtons = document.querySelectorAll('.role-icon');
-const $agentpages = document.querySelector('.agent-pages');
+const $agentPageRow = document.querySelector('.agent-pages');
 let $agentIcons = document.querySelector('.agent-icons');
 
 function getAgents() {
@@ -130,7 +130,7 @@ function getAgents() {
           $agentPage.append($abilities);
           $agentPage.append($bookmarkIcon);
 
-          $agentpages.append($agentPage);
+          $agentPageRow.append($agentPage);
         }
       }
     }
@@ -185,12 +185,21 @@ let index;
 $agentIcons.addEventListener('click', () => {
   $allIcons = document.querySelectorAll('.agent-icon');
   $agentPages = document.querySelectorAll('.agent-page');
+  if (!$bookmarksRow.classList.contains('hidden')) {
+    $bookmarksRow.classList.add('hidden');
+  }
+  if (!$filter.classList.contains('hidden')) {
+    $filter.classList.add('hidden');
+  }
+  if (!$agentIconsRow.classList.contains('hidden')) {
+    $agentIconsRow.classList.add('hidden');
+  }
   for (index = 0; index < $allIcons.length; index++) {
     if (event.target === $allIcons[index]) {
-      $agentPages[index].classList.remove('hidden');
-      $filter.classList.add('hidden');
-      $agentIconsRow.classList.add('hidden');
-      return;
+      if ($agentPages[index].classList.contains('hidden')) {
+        $agentPages[index].classList.remove('hidden');
+        return;
+      }
     }
   }
 });
@@ -199,16 +208,75 @@ const $agentsTab = document.querySelector('.agents-tab');
 
 $agentsTab.addEventListener('click', () => {
   $agentPages = document.querySelectorAll('.agent-page');
-  $agentPages[index].classList.add('hidden');
+
+  if (!$bookmarksRow.classList.contains('hidden')) {
+    $bookmarksRow.classList.add('hidden');
+  }
+  if ($agentPages[index]) {
+    if (!$agentPages[index].classList.contains('hidden')) {
+      $agentPages[index].classList.add('hidden');
+    }
+  }
   $filter.classList.remove('hidden');
   $agentIconsRow.classList.remove('hidden');
+  for (let i = 0; i < $allIcons.length; i++) {
+    if ($allIcons[i].classList.contains('hidden')) {
+      $allIcons[i].classList.remove('hidden');
+    }
+  }
+
 });
 
 const $logo = document.querySelector('.logo');
 
 $logo.addEventListener('click', () => {
+  if (!$bookmarksRow.classList.contains('hidden')) {
+    $bookmarksRow.classList.add('hidden');
+  }
   $agentPages = document.querySelectorAll('.agent-page');
   $agentPages[index].classList.add('hidden');
   $filter.classList.remove('hidden');
   $agentIconsRow.classList.remove('hidden');
+});
+
+let bookmarkNum;
+
+$agentPageRow.addEventListener('click', () => {
+  const $bookmarkAll = document.querySelectorAll('.fa-bookmark');
+  $agentPages = document.querySelectorAll('.agent-page');
+  $allIcons = document.querySelectorAll('.agent-icon');
+  for (bookmarkNum = 0; bookmarkNum < $bookmarkAll.length; bookmarkNum++) {
+    if (event.target === $bookmarkAll[bookmarkNum]) {
+      $bookmarkAll[bookmarkNum].setAttribute('class', 'fa-solid fa-bookmark');
+      $agentPages[bookmarkNum].classList.add('bookmarked');
+      $allIcons[bookmarkNum].classList.add('bookmarked');
+      return;
+    }
+  }
+});
+
+const $bookmarksTab = document.querySelector('.bookmarks-tab');
+const $bookmarksRow = document.querySelector('.bookmarks');
+
+$bookmarksTab.addEventListener('click', () => {
+  $agentPages = document.querySelectorAll('.agent-page');
+  $allIcons = document.querySelectorAll('.agent-icon');
+
+  if ($bookmarksRow.classList.contains('hidden')) {
+    $bookmarksRow.classList.remove('hidden');
+  }
+  if (!$filter.classList.contains('hidden')) {
+    $filter.classList.add('hidden');
+  }
+  if ($agentIconsRow.classList.contains('hidden')) {
+    $agentIconsRow.classList.remove('hidden');
+  }
+  for (let i = 0; i < $allIcons.length; i++) {
+    if (!$allIcons[i].classList.contains('bookmarked')) {
+      $allIcons[i].classList.add('hidden');
+    }
+    if (!$agentPages[i].classList.contains('hidden')) {
+      $agentPages[i].classList.add('hidden');
+    }
+  }
 });

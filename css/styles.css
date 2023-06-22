@@ -98,6 +98,10 @@ h2 {
     max-width: 60%;
   }
 
+  .ability-icon {
+    max-width: 20%;
+  }
+
   a {
     font-size: 1.7rem;
   }
@@ -105,6 +109,10 @@ h2 {
   @media screen and (min-width: 1200px) {
     .agent-icon {
       max-width: 10%;
+    }
+
+    .ability-icon {
+      max-width: 25%;
     }
 
     .logo {

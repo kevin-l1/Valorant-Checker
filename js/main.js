@@ -207,11 +207,11 @@ $agentIcons.addEventListener('click', () => {
 const $agentsTab = document.querySelector('.agents-tab');
 
 $agentsTab.addEventListener('click', () => {
+  $agentPages = document.querySelectorAll('.agent-page');
+
   if (!$bookmarksRow.classList.contains('hidden')) {
     $bookmarksRow.classList.add('hidden');
   }
-  $agentPages = document.querySelectorAll('.agent-page');
-  $agentPages[index].classList.add('hidden');
   $filter.classList.remove('hidden');
   $agentIconsRow.classList.remove('hidden');
   for (let i = 0; i < $allIcons.length; i++) {
@@ -219,6 +219,7 @@ $agentsTab.addEventListener('click', () => {
       $allIcons[i].classList.remove('hidden');
     }
   }
+
 });
 
 const $logo = document.querySelector('.logo');

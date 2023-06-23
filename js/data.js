@@ -2,7 +2,7 @@
 
 var data = {
   bookmarkedAgents: [],
-  nextEntryId: 1
+  bookmarkId: 0
 };
 
 window.addEventListener('beforeunload', () => {

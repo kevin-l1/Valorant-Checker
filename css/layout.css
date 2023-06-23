@@ -67,6 +67,10 @@ header {
   margin: 1rem;
 }
 
+.bookmarked-agent-icon {
+  margin: 4rem 1rem 0 2rem;
+}
+
 .agent-page,
 .bookmarked-agent-page {
   position: relative;

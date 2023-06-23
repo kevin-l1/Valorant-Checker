@@ -4,6 +4,7 @@ const $roleButtons = document.querySelectorAll('.role-icon');
 const $agentPageRow = document.querySelector('.agent-pages');
 let $agentIcons;
 const $bookmarksTab = document.querySelector('.bookmarks-tab');
+let resp;
 
 function getAgents() {
   const xhr = new XMLHttpRequest();
@@ -11,7 +12,7 @@ function getAgents() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
     if (xhr.response && xhr.response.data) {
-      const resp = xhr.response.data;
+      resp = xhr.response.data;
       for (let i = 0; i < resp.length; i++) {
         if (resp[i].isPlayableCharacter === true) {
           const $agentIcon = document.createElement('img');
@@ -33,9 +34,9 @@ function getAgents() {
           const $bookmarkIcon = document.createElement('i');
 
           if (data.bookmarkedAgents.includes(i)) {
-            $bookmarkIcon.setAttribute('class', 'fa-solid fa-bookmark');
+            $bookmarkIcon.setAttribute('class', 'fa-solid fa-bookmark fa-bookmark-default');
           } else {
-            $bookmarkIcon.setAttribute('class', 'fa-regular fa-bookmark');
+            $bookmarkIcon.setAttribute('class', 'fa-regular fa-bookmark fa-bookmark-default');
           }
 
           const $portraitText = document.createElement('div');
@@ -148,8 +149,10 @@ function getAgents() {
 function renderAgentIcon(resp, id) {
   const $agentIcon = document.createElement('img');
   $agentIcon.setAttribute('src', resp[id].displayIcon);
-  $agentIcon.setAttribute('class', 'agent-icon');
+  $agentIcon.setAttribute('class', 'bookmarked-agent-icon');
+  $agentIcon.setAttribute('dataset', 'id');
   $agentIcon.classList.add('bookmarked-icon');
+  $agentIcon.dataset.id = id;
   $agentIcon.setAttribute('alt', 'Agent Icon');
   $agentIcon.classList.add(resp[id].role.displayName.toLowerCase());
 
@@ -167,6 +170,8 @@ function renderAgentPage(resp, id) {
   $abilities.setAttribute('class', 'column-full right');
   const $bookmarkIcon = document.createElement('i');
   $bookmarkIcon.setAttribute('class', 'fa-solid fa-bookmark');
+  $bookmarkIcon.setAttribute('dataset', 'id');
+  $bookmarkIcon.dataset.id = id;
 
   const $portraitText = document.createElement('div');
   $portraitText.setAttribute('class', 'portrait-text');
@@ -341,7 +346,9 @@ $agentIconsRow.addEventListener('click', () => {
 
 const $agentsTab = document.querySelector('.agents-tab');
 
-$agentsTab.addEventListener('click', () => {
+$agentsTab.addEventListener('click', agentTab);
+
+function agentTab() {
   $agentPages = document.querySelectorAll('.agent-page');
 
   if (!$bookmarksRow.classList.contains('hidden')) {
@@ -359,7 +366,7 @@ $agentsTab.addEventListener('click', () => {
       $allIcons[i].classList.remove('hidden');
     }
   }
-});
+}
 
 const $logo = document.querySelector('.logo');
 
@@ -383,16 +390,19 @@ $logo.addEventListener('click', () => {
   }
 });
 
-let bookmarkNum;
+const $bookmarkedIconsRow = document.querySelector('.bookmarked-agent-icons');
+const $bookmarkedPagesRow = document.querySelector('.bookmarked-agent-pages');
 
 function bookmark() {
-  const $bookmarkAll = document.querySelectorAll('.fa-bookmark');
+  const $bookmarkAll = document.querySelectorAll('.fa-bookmark-default');
   $agentPages = document.querySelectorAll('.agent-page');
   $allIcons = document.querySelectorAll('.agent-icon');
-  for (bookmarkNum = 0; bookmarkNum < $bookmarkAll.length; bookmarkNum++) {
-    if (event.target === $bookmarkAll[bookmarkNum]) {
+  for (let bookmarkNum = 0; bookmarkNum < $bookmarkAll.length; bookmarkNum++) {
+    if (event.target === $bookmarkAll[bookmarkNum] && event.target.classList.contains('fa-regular')) {
       data.bookmarkedAgents.push(bookmarkNum);
-      $bookmarkAll[bookmarkNum].setAttribute('class', 'fa-solid fa-bookmark');
+      $bookmarkedIconsRow.append(renderAgentIcon(resp, bookmarkNum));
+      $bookmarkedPagesRow.append(renderAgentPage(resp, bookmarkNum));
+      $bookmarkAll[bookmarkNum].setAttribute('class', 'fa-solid fa-bookmark fa-bookmark-default');
       return;
     }
   }
@@ -400,7 +410,9 @@ function bookmark() {
 
 $agentPageRow.addEventListener('click', bookmark);
 
-$bookmarksTab.addEventListener('click', () => {
+$bookmarksTab.addEventListener('click', bookmarkTab);
+
+function bookmarkTab() {
   $agentPages = document.querySelectorAll('.agent-page');
   $allIcons = document.querySelectorAll('.agent-icon');
   const $AllBookmarkedIcons = document.querySelectorAll('.bookmarked-icon');
@@ -421,18 +433,17 @@ $bookmarksTab.addEventListener('click', () => {
   if (!$agentIconsRow.classList.contains('hidden')) {
     $agentIconsRow.classList.add('hidden');
   }
-  if (!$agentPageRow.classList.contains('hidden')) {
-    $agentPageRow.classList.add('hidden');
+  for (let i = 0; i < $agentPages.length; i++) {
+    if (!$agentPages[i].classList.contains('hidden')) {
+      $agentPages[i].classList.add('hidden');
+    }
   }
   for (let i = 0; i < $AllBookmarkedIcons.length; i++) {
     if (!$AllBookmarkedPages[i].classList.contains('hidden')) {
       $AllBookmarkedPages[i].classList.add('hidden');
     }
   }
-});
-
-const $bookmarkedIconsRow = document.querySelector('.bookmarked-agent-icons');
-const $bookmarkedPagesRow = document.querySelector('.bookmarked-agent-pages');
+}
 
 function renderBookmark() {
   const xhr = new XMLHttpRequest();
@@ -440,7 +451,7 @@ function renderBookmark() {
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
     if (xhr.response && xhr.response.data) {
-      const resp = xhr.response.data;
+      resp = xhr.response.data;
       for (let i = 0; i < data.bookmarkedAgents.length; i++) {
         $bookmarkedIconsRow.append(renderAgentIcon(resp, data.bookmarkedAgents[i]));
         $bookmarkedPagesRow.append(renderAgentPage(resp, data.bookmarkedAgents[i]));
@@ -471,4 +482,28 @@ $bookmarksRow.addEventListener('click', () => {
       }
     }
   }
+});
+
+const $bookmarkedAgentPage = document.querySelector('.bookmarked-agent-pages');
+
+$bookmarkedAgentPage.addEventListener('click', () => {
+  const $AllBookmarkedIcons = document.querySelectorAll('.bookmarked-icon');
+  const $AllBookmarkedPages = document.querySelectorAll('.bookmarked-agent-page');
+
+  if (!$bookmarksText.classList.contains('hidden')) {
+    $bookmarksText.classList.add('hidden');
+  }
+  if (!$bookmarkedIconsRow.classList.contains('hidden')) {
+    $bookmarkedIconsRow.classList.add('hidden');
+  }
+
+  for (let i = 0; i < $AllBookmarkedIcons.length; i++) {
+    if (event.target.classList.contains('fa-solid') && event.target.dataset.id === $AllBookmarkedIcons[i].dataset.id) {
+      const toBeRemoved = data.bookmarkedAgents.indexOf(i);
+      data.bookmarkedAgents.splice(toBeRemoved, 1);
+      $AllBookmarkedIcons[i].remove();
+      $AllBookmarkedPages[i].remove();
+    }
+  }
+  agentTab();
 });

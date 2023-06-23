@@ -27,7 +27,8 @@ a {
   max-width: 35%;
 }
 
-.agent-icon {
+.agent-icon,
+.bookmarked-agent-icon {
   border-radius: 50%;
   border: solid #ff4454;
   background-color: #171717;
@@ -35,6 +36,7 @@ a {
 }
 
 .agent-icon:hover,
+.bookmarked-agent-icon,
 .role-icon {
   cursor: pointer;
 }
@@ -66,7 +68,8 @@ h2 {
 }
 
 @media screen and (min-width: 530px) {
-  .agent-icon {
+  .agent-icon,
+  .bookmarked-agent-icon {
     max-width: 25%;
   }
 
@@ -80,7 +83,8 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
-  .agent-icon {
+  .agent-icon,
+  .bookmarked-agent-icon {
     max-width: 20%;
   }
 
@@ -107,7 +111,8 @@ h2 {
   }
 
   @media screen and (min-width: 1200px) {
-    .agent-icon {
+    .agent-icon,
+    .bookmarked-agent-icon {
       max-width: 10%;
     }
 
@@ -130,11 +135,19 @@ h2 {
     max-width: 40%;
   }
 
-  .agent-icon {
+  .agent-icon,
+  .bookmarked-agent-icon {
     max-width: 12%;
   }
 
   a {
     font-size: 2.3rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .agent-icon,
+  .bookmarked-agent-icon {
+    max-width: 10%;
   }
 }

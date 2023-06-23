@@ -67,7 +67,8 @@ header {
   margin: 1rem;
 }
 
-.agent-page {
+.agent-page,
+.bookmarked-agent-page {
   position: relative;
 }
 
@@ -123,13 +124,19 @@ p {
   text-align: center;
 }
 
-.bookmarks.row {
+.bookmarks {
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
-.bookmark-text {
+.bookmarks-text {
   text-align: center;
+}
+
+.bookmarked-icons {
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 530px) {

@@ -2,6 +2,10 @@
   display: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: #32333d;
 }
@@ -24,7 +28,7 @@ a {
 
 .role-icon {
   object-fit: scale-down;
-  max-width: 35%;
+  max-width: 20%;
 }
 
 .agent-icon,
@@ -36,8 +40,10 @@ a {
 }
 
 .agent-icon:hover,
-.bookmarked-agent-icon,
-.role-icon {
+.bookmarked-agent-icon:hover,
+.role-icon:hover,
+.fa-bookmark:hover,
+.logo:hover {
   cursor: pointer;
 }
 
@@ -74,7 +80,7 @@ h2 {
   }
 
   .role-icon {
-    max-width: 30%;
+    max-width: 20%;
   }
 
   a {
@@ -86,6 +92,10 @@ h2 {
   .agent-icon,
   .bookmarked-agent-icon {
     max-width: 20%;
+  }
+
+  .role-icon {
+    max-width: 25%;
   }
 
   .logo {
@@ -102,6 +112,10 @@ h2 {
     max-width: 60%;
   }
 
+  .role-icon {
+    max-width: 30%;
+  }
+
   .ability-icon {
     max-width: 20%;
   }
@@ -111,6 +125,9 @@ h2 {
   }
 
   @media screen and (min-width: 1200px) {
+    .role-icon {
+      max-width: 8%;
+    }
     .agent-icon,
     .bookmarked-agent-icon {
       max-width: 10%;

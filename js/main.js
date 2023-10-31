@@ -157,6 +157,7 @@ function renderAgentIcon(resp, id) {
   $agentIcon.setAttribute("src", resp[id].displayIcon);
   $agentIcon.setAttribute("class", "bookmarked-agent-icon");
   $agentIcon.setAttribute("dataset", "id");
+  $agentIcon.classList.add("bookmarked-icon");
   $agentIcon.dataset.id = id;
   $agentIcon.setAttribute("alt", "Agent Icon");
   $agentIcon.classList.add(resp[id].role.displayName.toLowerCase());
@@ -277,155 +278,6 @@ function renderAgentPage(resp, id) {
   $agentPage.append($bookmarkIcon);
 
   return $agentPage;
-}
-
-function getWeapons() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://valorant-api.com/v1/agents");
-  xhr.responseType = "json";
-  xhr.addEventListener("load", () => {
-    if (xhr.response && xhr.response.data) {
-      resp = xhr.response.data;
-      for (let i = 0; i < resp.length; i++) {
-        if (resp[i].isPlayableCharacter === true) {
-          const $agentIcon = document.createElement("img");
-          $agentIcon.setAttribute("src", resp[i].displayIcon);
-          $agentIcon.setAttribute("class", "agent-icon");
-          $agentIcon.setAttribute("alt", "Agent Icon");
-          $agentIcon.classList.add(resp[i].role.displayName.toLowerCase());
-          $agentIconsRow.append($agentIcon);
-
-          // character page
-          const $agentPage = document.createElement("div");
-          $agentPage.setAttribute("class", "row");
-          $agentPage.classList.add("agent-page");
-          $agentPage.classList.add("hidden");
-          const $describedImage = document.createElement("div");
-          $describedImage.setAttribute("class", "column-full left");
-          const $abilities = document.createElement("div");
-          $abilities.setAttribute("class", "column-full right");
-          const $bookmarkIcon = document.createElement("i");
-
-          if (data.bookmarkedAgents.includes(i)) {
-            $bookmarkIcon.setAttribute(
-              "class",
-              "fa-solid fa-bookmark fa-bookmark-default"
-            );
-          } else {
-            $bookmarkIcon.setAttribute(
-              "class",
-              "fa-regular fa-bookmark fa-bookmark-default"
-            );
-          }
-
-          const $portraitText = document.createElement("div");
-          $portraitText.setAttribute("class", "portrait-text");
-          const $portrait = document.createElement("img");
-          $portrait.setAttribute("src", resp[i].fullPortrait);
-          $portrait.setAttribute("class", "agent-portrait");
-          $portrait.setAttribute("alt", "Agent Portrait");
-          const $name = document.createElement("h1");
-          $name.setAttribute("class", "name");
-          $name.textContent = resp[i].displayName;
-          const $description = document.createElement("p");
-          $description.setAttribute("class", "agent-description");
-          $description.textContent = resp[i].description;
-
-          const $abilityOne = document.createElement("div");
-          $abilityOne.setAttribute("class", "ability");
-          const $abilityTwo = document.createElement("div");
-          $abilityTwo.setAttribute("class", "ability");
-          const $abilityThree = document.createElement("div");
-          $abilityThree.setAttribute("class", "ability");
-          const $ultimate = document.createElement("div");
-          $ultimate.setAttribute("class", "ability");
-
-          const $abilityOneIcon = document.createElement("img");
-          $abilityOneIcon.setAttribute("class", "ability-icon");
-          $abilityOneIcon.setAttribute("alt", "Ability One Icon");
-          $abilityOneIcon.setAttribute("src", resp[i].abilities[0].displayIcon);
-          const $abilityTwoIcon = document.createElement("img");
-          $abilityTwoIcon.setAttribute("class", "ability-icon");
-          $abilityTwoIcon.setAttribute("src", resp[i].abilities[1].displayIcon);
-          $abilityTwoIcon.setAttribute("alt", "Ability Two Icon");
-          const $abilityThreeIcon = document.createElement("img");
-          $abilityThreeIcon.setAttribute("class", "ability-icon");
-          $abilityThreeIcon.setAttribute("alt", "Ability Three Icon");
-          $abilityThreeIcon.setAttribute(
-            "src",
-            resp[i].abilities[2].displayIcon
-          );
-          const $ultimateIcon = document.createElement("img");
-          $ultimateIcon.setAttribute("class", "ability-icon");
-          $ultimateIcon.setAttribute("alt", "Ultimate Icon");
-          $ultimateIcon.setAttribute("src", resp[i].abilities[3].displayIcon);
-
-          const $abilityOneName = document.createElement("h2");
-          $abilityOneName.textContent = resp[i].abilities[0].displayName;
-          const $abilityTwoName = document.createElement("h2");
-          $abilityTwoName.textContent = resp[i].abilities[1].displayName;
-          const $abilityThreeName = document.createElement("h2");
-          $abilityThreeName.textContent = resp[i].abilities[2].displayName;
-          const $ultimateName = document.createElement("h2");
-          $ultimateName.textContent = resp[i].abilities[3].displayName;
-
-          const $abilityOneDescription = document.createElement("p");
-          $abilityOneDescription.textContent = resp[i].abilities[0].description;
-          const $abilityTwoDescription = document.createElement("p");
-          $abilityTwoDescription.textContent = resp[i].abilities[1].description;
-          const $abilityThreeDescription = document.createElement("p");
-          $abilityThreeDescription.textContent =
-            resp[i].abilities[2].description;
-          const $ultimateDescription = document.createElement("p");
-          $ultimateDescription.textContent = resp[i].abilities[3].description;
-
-          const $abilityOneText = document.createElement("div");
-          $abilityOneText.setAttribute("class", "ability-text");
-          $abilityOneText.append($abilityOneName);
-          $abilityOneText.append($abilityOneDescription);
-          const $abilityTwoText = document.createElement("div");
-          $abilityTwoText.setAttribute("class", "ability-text");
-          $abilityTwoText.append($abilityTwoName);
-          $abilityTwoText.append($abilityTwoDescription);
-          const $abilityThreeText = document.createElement("div");
-          $abilityThreeText.setAttribute("class", "ability-text");
-          $abilityThreeText.append($abilityThreeName);
-          $abilityThreeText.append($abilityThreeDescription);
-          const $ultimateText = document.createElement("div");
-          $ultimateText.setAttribute("class", "ability-text");
-          $ultimateText.append($ultimateName);
-          $ultimateText.append($ultimateDescription);
-
-          $portraitText.append($name);
-          $portraitText.append($description);
-
-          $abilityOne.append($abilityOneIcon);
-          $abilityOne.append($abilityOneText);
-          $abilityTwo.append($abilityTwoIcon);
-          $abilityTwo.append($abilityTwoText);
-          $abilityThree.append($abilityThreeIcon);
-          $abilityThree.append($abilityThreeText);
-          $ultimate.append($ultimateIcon);
-          $ultimate.append($ultimateText);
-
-          $describedImage.append($portrait);
-          $describedImage.append($portraitText);
-
-          $abilities.append($abilityOne);
-          $abilities.append($abilityTwo);
-          $abilities.append($abilityThree);
-          $abilities.append($ultimate);
-
-          $agentPage.append($describedImage);
-          $agentPage.append($abilities);
-          $agentPage.append($bookmarkIcon);
-
-          $agentPageRow.append($agentPage);
-        }
-      }
-    }
-  });
-  xhr.send();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -549,6 +401,8 @@ function bookmark() {
   const $bookmarkAll = document.querySelectorAll(".fa-bookmark-default");
   $agentPages = document.querySelectorAll(".agent-page");
   $allIcons = document.querySelectorAll(".agent-icon");
+  console.log($agentPages);
+  console.log($allIcons);
   for (let bookmarkNum = 0; bookmarkNum < $bookmarkAll.length; bookmarkNum++) {
     if (
       event.target === $bookmarkAll[bookmarkNum] &&
@@ -573,9 +427,7 @@ $bookmarksTab.addEventListener("click", bookmarkTab);
 function bookmarkTab() {
   $agentPages = document.querySelectorAll(".agent-page");
   $allIcons = document.querySelectorAll(".agent-icon");
-  const $AllBookmarkedIcons = document.querySelectorAll(
-    ".bookmarked-agent-icon"
-  );
+  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );
@@ -631,9 +483,7 @@ const $bookmarksRow = document.querySelector(".bookmarks");
 const $bookmarksText = document.querySelector(".bookmarks-text");
 
 $bookmarksRow.addEventListener("click", () => {
-  const $AllBookmarkedIcons = document.querySelectorAll(
-    ".bookmarked-agent-icon"
-  );
+  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );
@@ -657,9 +507,7 @@ $bookmarksRow.addEventListener("click", () => {
 const $bookmarkedAgentPage = document.querySelector(".bookmarked-agent-pages");
 
 $bookmarkedAgentPage.addEventListener("click", () => {
-  const $AllBookmarkedIcons = document.querySelectorAll(
-    ".bookmarked-agent-icon"
-  );
+  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );

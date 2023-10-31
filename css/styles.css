@@ -36,8 +36,10 @@ a {
 }
 
 .agent-icon:hover,
-.bookmarked-agent-icon,
-.role-icon {
+.bookmarked-agent-icon:hover,
+.role-icon:hover,
+.fa-bookmark:hover,
+.logo:hover {
   cursor: pointer;
 }
 

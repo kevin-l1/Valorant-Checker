@@ -160,7 +160,6 @@ function renderAgentIcon(resp, id) {
   $agentIcon.setAttribute("src", resp[id].displayIcon);
   $agentIcon.setAttribute("class", "bookmarked-agent-icon");
   $agentIcon.setAttribute("dataset", "id");
-  $agentIcon.classList.add("bookmarked-icon");
   $agentIcon.dataset.id = id;
   $agentIcon.setAttribute("alt", "Agent Icon");
   $agentIcon.classList.add(resp[id].role.displayName.toLowerCase());
@@ -577,7 +576,9 @@ $bookmarksTab.addEventListener("click", bookmarkTab);
 function bookmarkTab() {
   $agentPages = document.querySelectorAll(".agent-page");
   $allIcons = document.querySelectorAll(".agent-icon");
-  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
+  const $AllBookmarkedIcons = document.querySelectorAll(
+    ".bookmarked-agent-icon"
+  );
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );
@@ -633,7 +634,9 @@ const $bookmarksRow = document.querySelector(".bookmarks");
 const $bookmarksText = document.querySelector(".bookmarks-text");
 
 $bookmarksRow.addEventListener("click", () => {
-  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
+  const $AllBookmarkedIcons = document.querySelectorAll(
+    ".bookmarked-agent-icon"
+  );
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );
@@ -657,7 +660,9 @@ $bookmarksRow.addEventListener("click", () => {
 const $bookmarkedAgentPage = document.querySelector(".bookmarked-agent-pages");
 
 $bookmarkedAgentPage.addEventListener("click", () => {
-  const $AllBookmarkedIcons = document.querySelectorAll(".bookmarked-icon");
+  const $AllBookmarkedIcons = document.querySelectorAll(
+    ".bookmarked-agent-icon"
+  );
   const $AllBookmarkedPages = document.querySelectorAll(
     ".bookmarked-agent-page"
   );

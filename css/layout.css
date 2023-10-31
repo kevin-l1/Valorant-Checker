@@ -17,6 +17,10 @@ header {
   padding: 0 0.5rem;
 }
 
+.header.row {
+  justify-content: space-between;
+}
+
 .header.column-fourth {
   justify-content: start;
 }
@@ -35,7 +39,7 @@ header {
 
 .column-fourth {
   display: flex;
-  flex-basis: 25%;
+  flex-basis: 18%;
 }
 
 .column-two-fifth {
@@ -145,7 +149,7 @@ p {
 
 @media screen and (min-width: 530px) {
   .role-icon {
-    margin: 0.3rem;
+    margin: 0.5rem;
   }
 }
 
@@ -229,7 +233,12 @@ p {
 
   .roles-icons {
     align-items: center;
-    padding: 1rem 0 2rem;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .role-icon {
+    margin: 0 1rem;
   }
 
   .fa-bookmark {
@@ -238,11 +247,6 @@ p {
 }
 
 @media screen and (min-width: 1400px) {
-  .roles-icons {
-    margin: 0;
-    padding: 0;
-  }
-
   .column-full.right {
     margin-top: 3.5rem;
   }

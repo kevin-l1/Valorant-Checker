@@ -72,7 +72,7 @@ header {
 }
 
 .bookmarked-agent-icon {
-  margin: 4rem 1rem 0 2rem;
+  margin: 1rem;
 }
 
 .agent-page,
@@ -141,6 +141,7 @@ p {
 
 .bookmarks-text {
   text-align: center;
+  margin: 0 0 1rem 0;
 }
 
 .bookmarked-icons {

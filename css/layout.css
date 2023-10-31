@@ -19,6 +19,7 @@ header {
 
 .header.row {
   justify-content: space-between;
+  text-align: center;
 }
 
 .header.column-fourth {
@@ -38,7 +39,6 @@ header {
 }
 
 .column-fourth {
-  display: flex;
   flex-basis: 18%;
 }
 

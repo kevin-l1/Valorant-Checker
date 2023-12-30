@@ -6,6 +6,7 @@ let $agentIcons;
 const $bookmarksTab = document.querySelector('.bookmarks-tab');
 let resp;
 
+// Retrieves Agent data and creates dom tree
 function getAgents() {
   const xhr = new XMLHttpRequest();
   xhr.open(
@@ -152,6 +153,7 @@ function getAgents() {
   xhr.send();
 }
 
+// Renders agent icons to homepage
 function renderAgentIcon(resp, id) {
   const $agentIcon = document.createElement('img');
   $agentIcon.setAttribute('src', resp[id].displayIcon);
@@ -164,6 +166,7 @@ function renderAgentIcon(resp, id) {
   return $agentIcon;
 }
 
+// Renders agent pages when an icon is clicked
 function renderAgentPage(resp, id) {
   const $agentPage = document.createElement('div');
   $agentPage.setAttribute('class', 'row');
@@ -284,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBookmark();
 });
 
+// Filters agents by their role
 $filter.addEventListener('click', () => {
   if (event.target.classList.contains('current')) {
     event.target.classList.remove('current');
@@ -396,6 +400,7 @@ $logo.addEventListener('click', () => {
 const $bookmarkedIconsRow = document.querySelector('.bookmarked-agent-icons');
 const $bookmarkedPagesRow = document.querySelector('.bookmarked-agent-pages');
 
+// Bookmarks an agent to the bookmarks page
 function bookmark() {
   const $bookmarkAll = document.querySelectorAll('.fa-bookmark-default');
   $agentPages = document.querySelectorAll('.agent-page');
@@ -456,6 +461,7 @@ function bookmarkTab() {
   }
 }
 
+// Renders bookmarked agent icons to the bookmarks page
 function renderBookmark() {
   const xhr = new XMLHttpRequest();
   xhr.open(
